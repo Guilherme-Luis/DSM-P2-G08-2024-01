@@ -16,10 +16,7 @@
     "dotenv": "^16.5.0",
     "ejs": "^3.1.10",
     "express": "^5.1.0",
-<<<<<<< HEAD:package.json
     "express-validator": "^7.2.1",
-=======
->>>>>>> 39df44a6e1b87828e6204841a69a516c531a7875:backend/package.json
     "jsonwebtoken": "^9.0.2",
     "mysql2": "^3.14.1",
     "nodemon": "^3.1.10",
@@ -27,10 +24,5 @@
     "pg-hstore": "^2.3.4",
     "sequelize": "^6.37.7",
     "uuid": "^11.1.0"
-<<<<<<< HEAD:package.json
   }
-=======
-  },
-  "devDependencies": {}
->>>>>>> 39df44a6e1b87828e6204841a69a516c531a7875:backend/package.json
 }

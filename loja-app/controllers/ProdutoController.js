@@ -17,18 +17,8 @@ controller.view = async (req, res) => {
 controller.create = async (req, res) => {
   try {
     console.log('Requisição para criar produto:', req.body);
-    const { nome, preco, descricao, img, categoria, ativo, quantidade } = req.body;
-
-    const produto = await Produto.create({
-      nome,
-      preco,
-      descricao,
-      img,
-      categoria,
-      ativo,
-      quantidade,
-    });
-
+    const { nome, preco, descricao, img, categoria, ativo } = req.body;
+    const produto = await Produto.create({ nome, preco, descricao, img, categoria, ativo });
     console.log('Produto criado com sucesso:', produto);
     res.status(201).json(produto);
   } catch (error) {
@@ -41,21 +31,11 @@ controller.create = async (req, res) => {
 controller.update = async (req, res) => {
   try {
     const id = req.params.id;
-    const { nome, preco, descricao, img, categoria, ativo, quantidade } = req.body;
-
+    const { nome, preco, descricao, img, categoria, ativo } = req.body;
     const [updated] = await Produto.update(
-      {
-        nome,
-        preco,
-        descricao,
-        img,
-        categoria,
-        ativo,
-        quantidade,
-      },
+      { nome, preco, descricao, img, categoria, ativo },
       { where: { id } }
     );
-
     if (updated === 0) return res.status(404).end();
     res.status(204).end();
   } catch (error) {
