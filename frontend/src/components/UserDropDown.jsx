@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
-import { useAuth } from "../services/AuthContext";
+import useAuth from '../services/AuthContext';
 import { useNavigate } from "react-router-dom";
 import "./userDropdown.css";
 import UserL from "../assets/icone/UserL.png"; // Caminho do ícone padrão

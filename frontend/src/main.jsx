@@ -18,8 +18,12 @@ import Pedidos from './pages/pedidos';
 import Destilados from './pages/Destilados';
 import Vinhos from './pages/Vinhos';
 import Login from './pages/login';
-import Cadastro from './pages/cadastro';      // Import corrigido aqui
+import Cadastro from './pages/cadastro';
 import Settings from './pages/Settings';
+import Pedido_adm from './pages/Pedidos_adm'; 
+import Estoque from './pages/Estoque'; 
+import Vendas from './pages/Vendas'; 
+
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
@@ -40,6 +44,9 @@ ReactDOM.createRoot(document.getElementById('root')).render(
             <Route path="/login" element={<Login />} />
             <Route path="/cadastro" element={<Cadastro />} />
             <Route path="/settings" element={<Settings />} />
+            <Route path="/Pedido_adm" element={<Pedido_adm />} />
+            <Route path="/estoque" element={<Estoque />} />
+            <Route path="/vendas" element={<Vendas />} />
           </Routes>
         </CarrinhoProvider>
       </AuthProvider>

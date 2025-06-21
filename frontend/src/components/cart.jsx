@@ -1,8 +1,10 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useEffect } from "react"; // Adicionei o useEffect
 import "./cart.css";
 import { useCarrinho } from "../services/CarrinhoContext";
 import { criarPedido } from "../services/pedidos";
-import { useAuth } from "../services/AuthContext";
+import useAuth from "../services/AuthContext";
+import ModalPagamento from "./ModalPagemento";
+import { useNavigate } from "react-router-dom"; // Importei o useNavigate
 
 function Cart() {
   const {
@@ -14,11 +16,23 @@ function Cart() {
     finalizar,
   } = useCarrinho();
 
-  const { user } = useAuth(); // Corrigido para 'user'
+  const { user } = useAuth();
+  const navigate = useNavigate(); // Hook para navegação
 
   const [editing, setEditing] = useState(null);
   const [quantidadeEdit, setQuantidadeEdit] = useState(1);
   const [finalizando, setFinalizando] = useState(false);
+  const [mostrarModal, setMostrarModal] = useState(false);
+  const [mostrarLoginModal, setMostrarLoginModal] = useState(false); // Novo state para modal de login
+
+  // Verifica se o usuário está logado quando tenta finalizar compra
+  const verificarLoginAntesFinalizar = () => {
+    if (!user) {
+      setMostrarLoginModal(true);
+      return false;
+    }
+    return true;
+  };
 
   const iniciarEdicao = (item) => {
     setEditing(item.id || item.produtoId);
@@ -39,22 +53,32 @@ function Cart() {
     setEditing(null);
   };
 
-  const handleFinalizarCompra = async () => {
+  const irParaLogin = () => {
+    navigate("/login", { state: { from: "/carrinho" } }); // Redireciona para login
+  };
+
+  const continuarComoVisitante = () => {
+    setMostrarLoginModal(false); // Fecha o modal e permite continuar visualizando
+  };
+
+  const confirmarPagamento = async (metodoPagamento) => {
+    // Verifica login novamente antes de prosseguir
+    if (!verificarLoginAntesFinalizar()) return;
+
     if (itens.length === 0) return;
     setFinalizando(true);
+
     try {
       if (!user?.id) {
         alert("Usuário não encontrado. Faça login novamente.");
         setFinalizando(false);
         return;
       }
-      console.log("Usuário no contexto:", user);
-      console.log("Endereço:", user?.endereco);
-      console.log("Endereço ID:", user?.endereco?.id);
-      const enderecoId = user.endereco?.id || (user.enderecos?.[0]?.id) || null;
+
+      const enderecoId = user.endereco?.id || user.enderecos?.[0]?.id || null;
 
       if (!enderecoId) {
-        alert("Endereço não encontrado. Cadastre um endereço antes de finalizar a compra.");
+        alert("Endereço não encontrado. Cadastre um endereço antes.");
         setFinalizando(false);
         return;
       }
@@ -64,7 +88,7 @@ function Cart() {
         enderecoId,
         total,
         status: "emAndamento",
-        metodoPagamento: "dinheiro",
+        metodoPagamento,
         itens: itens.map((item) => ({
           produtoId: item.id || item.produtoId,
           quantidade: item.quantidade,
@@ -74,12 +98,21 @@ function Cart() {
       };
 
       await criarPedido(pedido);
-
       alert("Compra finalizada com sucesso!");
+
+      finalizar();
     } catch (error) {
       alert("Erro ao finalizar a compra. Tente novamente.");
     } finally {
+      setMostrarModal(false);
       setFinalizando(false);
+    }
+  };
+
+  // Atualizado o botão de finalizar compra para verificar login
+  const handleFinalizarClick = () => {
+    if (verificarLoginAntesFinalizar()) {
+      setMostrarModal(true);
     }
   };
 
@@ -157,12 +190,41 @@ function Cart() {
             <button
               className="finalizar"
               disabled={itens.length === 0 || finalizando}
-              onClick={handleFinalizarCompra}
+              onClick={handleFinalizarClick}
             >
-              {finalizando ? "Finalizando..." : "Finalizar Pedido"}
+              {finalizando ? "Finalizando..." : "Ir para Pagamento"}
             </button>
           </div>
         </>
+      )}
+
+      {/* Modal de pagamento */}
+      {mostrarModal && (
+        <ModalPagamento
+          total={total}
+          itens={itens}
+          formaEntrega={user?.formaEntrega || "Não informada"}
+          onClose={() => setMostrarModal(false)}
+          onConfirm={confirmarPagamento}
+        />
+      )}
+
+      {/* Modal de login necessário */}
+      {mostrarLoginModal && (
+        <div className="modal-overlay">
+          <div className="modal-login">
+            <h3>Login Necessário</h3>
+            <p>Você precisa estar logado para finalizar a compra.</p>
+            <div className="modal-botoes">
+              <button onClick={irParaLogin} className="btn-login">
+                Fazer Login
+              </button>
+              <button onClick={continuarComoVisitante} className="btn-visitante">
+                Continuar como Visitante
+              </button>
+            </div>
+          </div>
+        </div>
       )}
     </div>
   );

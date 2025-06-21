@@ -1,0 +1,240 @@
+/* Container principal */
+.relatorio-container {
+  min-height: 100vh;
+  background: #121212;
+  color: #f0f0f0;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Main content */
+.relatorio-main {
+  flex: 1;
+  max-width: 1200px;
+  margin-bottom: 20px;
+  padding: 0 0px;
+  display: flex;
+  gap: 24px;
+}
+
+/* Aside menu lateral */
+.estoque-tabnav {
+  width: 260px;
+  background-color: #181818;
+  padding: 24px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  border-radius: 12px;
+  border: 1px solid #333;
+  flex-shrink: 0;
+  height: fit-content;
+  user-select: none;
+}
+
+/* Links das abas */
+.tabnav-link {
+  background: none;
+  border: none;
+  color: #f0f0f0;
+  font-size: 1.1rem;
+  padding: 14px 20px;
+  text-align: left;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.25s, color 0.25s, font-weight 0.25s;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+}
+
+/* Hover deixa levemente claro */
+.tabnav-link:hover {
+  background-color: #2a2a2a;
+}
+
+/* Aba ativa — destaque forte */
+.tabnav-link.ativo {
+  background-color: #ffb300; /* verde para destaque */
+  color: #121212;
+  font-weight: 700;
+  box-shadow: 0 0 10px #ffb300;
+}
+
+/* Pequeno marcador visual (barra à esquerda) para aba ativa */
+.tabnav-link.ativo::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 10%;
+  width: 5px;
+  height: 80%;
+  background-color: #ffffff62;
+  border-radius: 4px 0 0 4px;
+}
+
+/* Conteúdo principal ao lado */
+.relatorio-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Título */
+.relatorio-content > h1 {
+  font-size: 2.4rem;
+  font-weight: 800;
+  color: #e0e0e0;
+  margin-bottom: 28px;
+  letter-spacing: 1px;
+  text-align: center;
+}
+
+/* Filtros */
+.relatorio-filtros {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 32px;
+  width: 100%;
+  max-width: 600px;
+  color: #ccc;
+}
+
+.relatorio-filtros label {
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.relatorio-filtros select {
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: 1.5px solid #404040;
+  background: #2b2b2b;
+  color: #f0f0f0;
+  font-size: 1.05rem;
+  cursor: pointer;
+  transition: border 0.2s, background 0.2s;
+  outline: none;
+  min-width: 160px;
+}
+
+.relatorio-filtros select:hover,
+.relatorio-filtros select:focus {
+  border-color: #888;
+  background: #333;
+}
+
+/* Área dos gráficos */
+.relatorio-graficos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 20px;
+  width: 100%;
+  max-width: 980px;
+}
+
+/* Cartão total vendido */
+.relatorio-card {
+  background: #232323;
+  border-radius: 18px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+  padding: 32px 40px;
+  color: #e0e0e0;
+  font-weight: 700;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  min-height: 180px;
+}
+
+.relatorio-card h2 {
+  margin-bottom: 12px;
+  color: #4caf50;
+  font-size: 1.5rem;
+}
+
+.valor {
+  font-size: 2.8rem;
+  font-weight: 800;
+  letter-spacing: 1.2px;
+  color: #fff;
+}
+
+/* Cartões dos gráficos */
+.relatorio-chart {
+  background: #232323;
+  border-radius: 18px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+  padding: 24px 32px;
+  min-height: 350px;
+  display: flex;
+  flex-direction: column;
+}
+
+.relatorio-chart h3 {
+  color: #4caf50;
+  font-weight: 700;
+  margin-bottom: 20px;
+  text-align: center;
+  font-size: 1.3rem;
+}
+
+/* Ajustes para tooltip e legend do recharts */
+.recharts-tooltip-wrapper {
+  font-size: 0.9rem !important;
+  color: #000 !important;
+}
+
+.recharts-legend-wrapper {
+  font-size: 1rem !important;
+  color: #fff !important;
+}
+
+/* Responsividade */
+@media (max-width: 900px) {
+  .relatorio-main {
+    flex-direction: column;
+    margin: 20px 15px 60px;
+  }
+
+  .estoque-tabnav {
+    width: 100%;
+    flex-direction: row;
+    justify-content: center;
+    gap: 16px;
+    height: auto;
+    margin-bottom: 20px;
+  }
+
+  .tabnav-link {
+    flex: 1;
+    text-align: center;
+    padding: 12px 10px;
+  }
+
+  .relatorio-content {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .relatorio-content > h1 {
+    font-size: 1.8rem;
+  }
+
+  .relatorio-filtros {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .relatorio-filtros select {
+    width: 100%;
+  }
+}

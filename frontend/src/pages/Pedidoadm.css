@@ -1,0 +1,224 @@
+/* Container principal */
+.pedidosadm-container {
+  min-height: 100vh;
+  background: #121212;
+  color: #f0f0f0;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Main content */
+.pedidosadm-main {
+  flex: 1;
+  max-width: 1200px;
+  margin-bottom: 20px;
+  padding: 0;
+  display: flex;
+  gap: 24px;
+}
+
+.pedidosadm-tabnav {
+  width: 260px;
+  background-color: #181818;
+  padding: 24px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  border-radius: 12px;
+  border: 1px solid #333;
+  flex-shrink: 0;
+  height: 100vh;      /* deixa com altura total da viewport */
+  position: sticky;   /* fixa na tela durante scroll */
+  top: 0;             /* distância do topo da viewport */
+  user-select: none;
+  overflow-y: auto;   /* adiciona scroll caso ultrapasse a altura */
+}
+
+/* Links das abas */
+.pedidosadm-link {
+  background: none;
+  border: none;
+  color: #f0f0f0;
+  font-size: 1.1rem;
+  padding: 14px 20px;
+  text-align: left;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.25s, color 0.25s, font-weight 0.25s;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+}
+
+.pedidosadm-link:hover {
+  background-color: #2a2a2a;
+}
+
+.pedidosadm-link.ativo {
+  background-color: #ffb300;
+  color: #121212;
+  font-weight: 700;
+  box-shadow: 0 0 10px #ffb300;
+}
+
+.pedidosadm-link.ativo::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 10%;
+  width: 5px;
+  height: 80%;
+  background-color: #ffffff62;
+  border-radius: 4px 0 0 4px;
+}
+
+/* Conteúdo principal */
+.pedidosadm-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Título */
+.pedidosadm-titulo {
+  font-size: 2.4rem;
+  font-weight: 800;
+  color: #e0e0e0;
+  margin-bottom: 28px;
+  text-align: center;
+  letter-spacing: 1px;
+}
+
+/* Abas */
+.pedidosadm-abas {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.pedidosadm-aba {
+  background-color: #2b2b2b;
+  color: #f0f0f0;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background 0.25s ease;
+}
+
+.pedidosadm-aba:hover,
+.pedidosadm-aba.ativa {
+  background-color: #ffb300;
+  color: #121212;
+  font-weight: 700;
+}
+
+/* Lista de pedidos */
+.pedidosadm-lista {
+  width: 100%;
+  max-width: 960px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Item de pedido */
+.pedidosadm-item {
+  background: #232323;
+  border-radius: 16px;
+  padding: 20px 24px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.pedidosadm-empresa {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #4caf50;
+  margin-bottom: 6px;
+}
+
+.pedidosadm-descricao,
+.pedidosadm-data {
+  font-size: 1rem;
+  color: #ccc;
+}
+
+.pedidosadm-itens {
+  margin: 10px 0;
+  padding-left: 20px;
+  list-style: disc;
+  color: #ddd;
+  font-size: 0.95rem;
+}
+
+.pedidosadm-total {
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: #fff;
+}
+
+/* Ações */
+.pedidosadm-acoes {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: center;
+}
+
+.pedidosadm-acoes button {
+  padding: 10px 16px;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.25s ease;
+  font-size: 0.95rem;
+}
+
+.pedidosadm-avaliar {
+  background-color: #4caf50;
+  color: #fff;
+}
+
+.pedidosadm-cancelar {
+  background-color: #f44336;
+  color: #fff;
+}
+
+.pedidosadm-ver {
+  background-color: #2196f3;
+  color: #fff;
+}
+
+.pedidosadm-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #000000bf;
+  display: flex;
+}
+
+.pedidosadm-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.75);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  padding: 20px;
+  box-sizing: border-box;
+}

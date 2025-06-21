@@ -1,0 +1,125 @@
+/* Botão quando usuário não está logado */
+.login-button {
+  padding: 0.5rem 1rem;
+  background-color: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 9999px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.login-button:hover {
+  background-color: #1e40af;
+}
+
+/* Container do dropdown */
+.user-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Avatar do usuário */
+.user-avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 9999px;
+  cursor: pointer;
+  object-fit: cover;
+}
+
+.dropdown-menu {
+  position: absolute;
+  right: 0;
+  top: 110%;
+  background-color: #ffffff;
+  width: 11rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+  overflow: hidden;
+  animation: fadeIn 0.2s ease-in-out;
+}
+
+/* Cabeçalho com nome e email */
+.menu-header {
+  padding: 0.75rem 1rem;
+  font-size: 0.875rem;
+  color: #111827;
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.menu-header div:first-child {
+  font-weight: 600;
+}
+
+.menu-header div:last-child {
+  font-size: 0.8rem;
+  color: #ffffff;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Link dentro do menu */
+.menu-link {
+  display: block;
+  padding: 0.5rem 1rem;
+  color: #374151;
+  font-size: 0.875rem;
+  text-decoration: none;
+  transition: background-color 0.2s;
+}
+
+.menu-link:hover {
+  background-color: #ffb300;
+}
+
+/* Botão de logout */
+.logout-button {
+  width: 100%;
+  padding: 0.5rem 1rem;
+  text-align: left;
+  font-size: 0.875rem;
+  color: #f3f4f6;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.logout-button:hover {
+  background-color: #ffb300;
+}
+
+/* Animação para o menu */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-5%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Suporte opcional a dark mode */
+@media (prefers-color-scheme: dark) {
+  .dropdown-menu {
+    background-color: #374151;
+    color: #ffffff;
+  }
+
+  .menu-header {
+    color: #ffffff;
+    border-bottom: 1px solid #4b5563;
+  }
+
+  .menu-link:hover,
+  .logout-button:hover {
+    background-color: #4b5563;
+    color: white;
+  }
+}

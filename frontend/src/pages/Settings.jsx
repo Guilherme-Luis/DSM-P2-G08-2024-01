@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useAuth } from '../services/AuthContext';
+import useAuth from '../services/AuthContext';
 import { buscarUsuarioPorId, atualizarUsuario } from '../services/api';
 import './cadastro.css';
 

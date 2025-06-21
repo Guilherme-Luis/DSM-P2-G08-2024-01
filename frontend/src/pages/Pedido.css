@@ -6,19 +6,16 @@
 }
 
 .conteudo {
-  flex: 1;
   display: flex;
-  padding: 1.75rem;
+  flex-direction: row;
 }
 
 .container {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   gap: 2rem;
-  width: 100%;
-  max-width: 76rem;
-  margin: 0 auto;
-  padding: 1 3rem;
+  flex: 1;
+  padding: 1rem 2rem;
   background: white;
   border-radius: 1rem;
 }
@@ -30,12 +27,11 @@
 }
 
 .pedidos {
-  width: 100%;
-  max-width: 66.6%;
+  flex: 1;
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  height: 600px;
+  min-height: 600px;
 }
 
 .abas {
@@ -215,4 +211,15 @@
   font-size: 0.875rem;
   font-weight: 500;
   cursor: pointer;
+}
+
+.estoque-tabnav {
+  width: 260px;
+  background-color: #181818;
+  padding: 24px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  border-right: 1px solid #333;
+  min-height: calc(100vh - 120px);
 }

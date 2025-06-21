@@ -1,0 +1,153 @@
+/* Modal.css */
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0,0,0,0.85); /* fundo mais escuro para contraste */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  box-sizing: border-box;
+  z-index: 9999;
+  overflow-y: auto;
+}
+
+.modal-content {
+  background-color: #222; /* fundo escuro */
+  border-radius: 12px;
+  width: 100%;
+  max-width: 480px;
+  padding: 2rem 2.5rem;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.7);
+  display: flex;
+  flex-direction: column;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #fff; /* texto branco */
+}
+
+h2 {
+  margin: 0 0 1.5rem 0;
+  font-weight: 700;
+  font-size: 1.9rem;
+  color: #fff; /* título branco */
+  text-align: center;
+}
+
+.modal-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* Inputs e select estilos */
+.modal-form input[type="text"],
+.modal-form input[type="number"],
+.modal-form input[type="url"],
+.modal-form select {
+  padding: 0.6rem 1rem;
+  border: 2px solid #555; /* borda clara */
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+  outline-offset: 2px;
+  outline-color: transparent;
+  background-color: #333; /* fundo escuro */
+  color: #fff; /* texto branco */
+}
+
+.modal-form input[type="text"]::placeholder,
+.modal-form input[type="number"]::placeholder,
+.modal-form input[type="url"]::placeholder,
+.modal-form select::placeholder {
+  color: #bbb; /* placeholder cinza claro */
+  font-style: italic;
+}
+
+.modal-form input[type="text"]:focus,
+.modal-form input[type="number"]:focus,
+.modal-form input[type="url"]:focus,
+.modal-form select:focus {
+  border-color: #ffb300; /* borda amarela */
+  outline-color: #ffb300;
+  box-shadow: 0 0 8px rgba(193, 196, 92, 0.5);
+}
+
+.modal-form select {
+  cursor: pointer;
+  background-color: #333;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url("data:image/svg+xml;charset=US-ASCII,%3csvg width='16' height='16' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M4 6l4 4 4-4' stroke='%23ccc' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 12px 12px;
+  color: #fff;
+}
+
+/* Botões */
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.modal-actions button {
+  padding: 0.4rem 1.2rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.25s ease;
+  min-width: 90px;
+  color: #fff;
+}
+
+.modal-actions button[type="submit"] {
+  background-color: #ffb300; /* amarelo */
+}
+
+.modal-actions button[type="submit"]:hover {
+  background-color: #ffb300d7; /* amarelo escuro */
+}
+
+.modal-actions button[type="button"] {
+  background-color: #555;
+  color: #eee;
+}
+
+.modal-actions button[type="button"]:hover {
+  background-color: #444;
+}
+
+/* Deixar os radios menores */
+.modal-form input[type="radio"] {
+  width: 14px;
+  height: 14px;
+  margin-right: 0.4rem;
+  cursor: pointer;
+  vertical-align: middle;
+  accent-color: #c1c45c; /* amarelo */
+}
+
+/* Responsividade */
+@media (max-width: 520px) {
+  .modal-content {
+    padding: 1.5rem 1.8rem;
+  }
+  
+  .modal-actions {
+    flex-direction: column;
+  }
+
+  .modal-actions button {
+    width: 100%;
+    min-width: unset;
+  }
+}

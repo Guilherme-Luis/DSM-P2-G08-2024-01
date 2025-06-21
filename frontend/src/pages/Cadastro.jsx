@@ -31,6 +31,7 @@ export default function Cadastro() {
         email: form.email,
         senha: form.senha,
         dataNascimento: form.dataNascimento,
+        role: 'cliente',
         endereco: {
           rua: form.rua,
           numero: form.numero,

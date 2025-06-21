@@ -13,8 +13,16 @@ function Categoria() {
   const [search, setSearch] = useState("");
   const navigate = useNavigate();
   const { nomeCategoria } = useParams();
-  const { adicionarItem, atualizado } = useCarrinho(); // ⬅️ pegando do contexto
+  const { adicionarItem, atualizado } = useCarrinho();
   const usuarioId = localStorage.getItem("usuarioId");
+
+  // Função para retornar a imagem do produto ou imagem padrão
+  function getImagemProduto(produto) {
+    if (produto.img && produto.img.trim() !== "") {
+      return produto.img;
+    }
+    return "/IMG/icone/cerveja.png"; // fallback local padrão
+  }
 
   const getProdutosFiltrados = () => {
     if (!nomeCategoria) {
@@ -40,7 +48,7 @@ function Categoria() {
           ...p,
           preco: Number(p.preco),
           desc: p.descricao,
-          img: p.img || "/IMG/icone/cerveja.png",
+          img: getImagemProduto(p),
         }));
         setProdutos(adaptados);
       } catch (error) {
@@ -54,7 +62,7 @@ function Categoria() {
   }, []);
 
   const handleAdicionar = async (produto) => {
-    await adicionarItem(produto.id, 1, produto); // ⬅️ usa o contexto aqui
+    await adicionarItem(produto.id, 1, produto);
   };
 
   return (

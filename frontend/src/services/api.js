@@ -22,6 +22,19 @@ export function obterProdutoPorId(id) {
   return api.get(`/produtos/${id}`);
 }
 
+export function excluirProduto(id) {
+  return api.delete(`/produtos/${id}`);
+}
+
+export const criarProduto = (produto) => {
+  return api.post("/produtos", produto); // ADICIONE o return
+};
+
+export const atualizarProduto = (id, produto) => {
+  return api.put(`/produtos/${id}`, produto); // ADICIONE o return
+};
+
+
 // Carrinho
 export async function buscarCarrinho(userId) {
   const response = await fetch(`/api/carrinho/${userId}`);

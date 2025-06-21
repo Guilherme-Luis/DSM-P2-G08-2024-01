@@ -18,7 +18,6 @@ const Navbar = () => {
         <Link to="/Home">Cardápio</Link>
         <Link to="/categoria">Categorias</Link>
         <Link to="/pedidos">Pedidos</Link>
-        <a href="#">Promoções</a>
         <Link to="/sobrenos">Empresa</Link>
         <UserDropdown user={{ nome: "Seu Nome", email: "seu@email.com" }} />
       </nav>

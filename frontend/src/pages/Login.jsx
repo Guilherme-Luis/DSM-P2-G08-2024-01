@@ -1,29 +1,40 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { loginUsuario } from '../services/api';
-import { useAuth } from '../services/AuthContext';
+import useAuth from '../services/AuthContext';
 import './login.css';
 
 export default function Login() {
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
   const navigate = useNavigate();
-  const { setUser } = useAuth(); // <-- CONTEXTO
+  const { setUser } = useAuth();
 
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
       const res = await loginUsuario({ email, senha });
+
+      const role = res.data.role || 'cliente';
+
       setUser({
         id: res.data.usuarioId,
         nome: res.data.nome,
         email: res.data.email,
         token: res.data.token,
-        fotoUrl: res.data.fotoUrl, // se existir
-        endereco: res.data.endereco 
+        fotoUrl: res.data.fotoUrl,
+        endereco: res.data.endereco,
+        role: role
       });
+
       console.log('Usuário logado:', res);
-      navigate('/home');
+
+      // Redirecionamento com base no papel
+      if (role === 'admin') {
+        navigate('/vendas');
+      } else {
+        navigate('/home');
+      }
     } catch (err) {
       console.error('Erro no login:', err);
       alert('Falha no login');

@@ -1,0 +1,79 @@
+.pagina-login {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f9fafb; /* bg-gray-0 */
+}
+
+.card-login {
+  background-color: #242528;
+  color: white;
+  padding: 2rem;
+  border-radius: 0.5rem;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.2);
+}
+
+.card-login h2 {
+  margin-bottom: 1.5rem;
+  text-align: center;
+  font-size: 1.5rem;
+  letter-spacing: 0.05em;
+}
+
+.card-login input {
+  width: 100%;
+  margin-bottom: 1rem;
+  padding: 0.75rem;
+  border-radius: 0.375rem;
+  border: 1px solid #374151;
+  background-color: #1f2937;
+  color: white;
+  font-size: 1rem;
+}
+
+.card-login input:focus {
+  outline: none;
+  border-color: #facc15;
+}
+
+.card-login button {
+  width: 100%;
+  background-color: #facc15;
+  color: black;
+  padding: 0.75rem;
+  border: none;
+  border-radius: 0.375rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.card-login button:hover {
+  background-color: #eab308;
+}
+
+/* Estilo para link de cadastro */
+.cadastro-link {
+  margin-top: 1rem;
+  text-align: center;
+  font-size: 0.9rem;
+  color: white;
+}
+
+.cadastro-link button {
+  background: none;
+  border: none;
+  color: #facc15; /* amarelo do botão */
+  text-decoration: underline;
+  cursor: pointer;
+  font-weight: 600;
+  padding: 0;
+  margin-left: 0.3rem;
+}
+
+.cadastro-link button:hover {
+  color: #eab308;
+}

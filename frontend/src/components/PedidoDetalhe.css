@@ -1,0 +1,40 @@
+.pedido-detalhe-painel {
+  width: 350px;
+  min-height: 100%;
+  background: #121212; /* fundo preto escuro */
+  color: #f0f0f0; /* texto claro */
+  padding: 20px;
+  border-left: 1px solid #333; /* borda mais escura para combinar */
+  overflow-y: auto;
+  position: relative;
+}
+
+.pedido-detalhe-painel .fechar {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 22px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #f0f0f0; /* cor clara para o botão fechar */
+}
+
+.pedido-detalhe-painel h2 {
+  margin-top: 0;
+  color: #fff; /* título em branco */
+}
+
+.pedido-detalhe-painel .secao {
+  margin-bottom: 20px;
+}
+
+.pedido-detalhe-painel ul {
+  list-style: none;
+  padding: 0;
+}
+
+.pedido-detalhe-painel li {
+  margin-bottom: 8px;
+  color: #ddd; /* texto dos itens um pouco mais claro */
+}

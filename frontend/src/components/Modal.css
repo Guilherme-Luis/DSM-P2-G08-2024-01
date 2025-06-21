@@ -1,0 +1,110 @@
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  backdrop-filter: blur(6px);
+  animation: fadeIn 0.3s ease forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.modal-content {
+  background: #2d2c2c;
+  padding: 32px 28px;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 420px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+  animation: slideUp 0.3s ease forwards;
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.modal-content h2 {
+  margin-bottom: 20px;
+  font-weight: 700;
+  font-size: 1.6rem;
+  color: #eee; /* texto claro para contraste */
+  text-align: center;
+}
+
+.modal-form input,
+.modal-form select {
+  width: 100%;
+  padding: 14px 16px;
+  margin-bottom: 16px;
+  border-radius: 8px;
+  border: 1.8px solid #555;
+  font-size: 1rem;
+  transition: border-color 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+  outline-offset: 2px;
+  background-color: #3b3a3a; /* fundo escuro dos inputs */
+  color: #eee; /* texto claro */
+}
+
+.modal-form input::placeholder,
+.modal-form select::placeholder {
+  color: #bbb; /* placeholder claro */
+}
+
+.modal-form input:focus,
+.modal-form select:focus {
+  border-color: #2d89ef;
+  box-shadow: 0 0 8px rgba(45, 137, 239, 0.7);
+  outline: none;
+  background-color: #1f1f1f; /* fundo mais escuro no foco */
+  color: #fff;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.modal-actions button {
+  flex: 1;
+  padding: 14px 0;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 1.05rem;
+  transition: background-color 0.25s ease, transform 0.15s ease;
+  color: #fff;
+  user-select: none;
+  box-shadow: 0 4px 10px rgba(45, 137, 239, 0.6);
+}
+
+.modal-actions button[type="submit"] {
+  background: #2d89ef;
+}
+
+.modal-actions button[type="submit"]:hover {
+  background: #2466c6;
+  transform: translateY(-2px);
+}
+
+.modal-actions button[type="button"] {
+  background: #555;
+  box-shadow: 0 4px 10px rgba(85, 85, 85, 0.5);
+  color: #ddd;
+}
+
+.modal-actions button[type="button"]:hover {
+  background: #444;
+  transform: translateY(-2px);
+}
