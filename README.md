@@ -2,6 +2,13 @@
 
 **Projeto Integrador | 2º Semestre - FATEC DSM**
 
+## Membros do Projeto:
+
+- KAIO LEANDRO RISSATO
+- LEONARDO PALAMONI
+- RAUL GONÇALVES
+- GUILHERME LUÍS RODRIGUES SILVA
+
 O *Copo Cheio* é uma plataforma de gerenciamento de pedidos online, voltada para pequenas empresas que desejam vender produtos por meio de um sistema completo com catálogo, carrinho, controle de pedidos, painel administrativo e relatórios. A aplicação é composta por um **frontend moderno (React + Vite)** e um **backend robusto (Node.js + Express + Sequelize)**.
 
 ## 📌 Objetivos do Projeto
