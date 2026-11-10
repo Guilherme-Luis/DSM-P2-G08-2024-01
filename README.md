@@ -1,4 +1,4 @@
-# 🛍️ Copo Cheio - Plataforma Web de Pedidos
+# Copo Cheio - Plataforma Web de Pedidos
 
 **Projeto Integrador | 2º Semestre - FATEC DSM**
 
@@ -11,14 +11,14 @@
 
 O *Copo Cheio* é uma plataforma de gerenciamento de pedidos online, voltada para pequenas empresas que desejam vender produtos por meio de um sistema completo com catálogo, carrinho, controle de pedidos, painel administrativo e relatórios. A aplicação é composta por um **frontend moderno (React + Vite)** e um **backend robusto (Node.js + Express + Sequelize)**.
 
-## 📌 Objetivos do Projeto
+## Objetivos do Projeto
 
 - Oferecer uma plataforma digital para cadastro, visualização e gerenciamento de produtos.
 - Permitir que os usuários realizem pedidos com facilidade.
 - Fornecer um painel administrativo para controle interno dos pedidos em diferentes estágios.
 - Apresentar relatórios de vendas e métricas essenciais para o negócio.
 
-## 🗂️ Estrutura do Projeto
+## Estrutura do Projeto
 ```bash
 PI-2-Semestre/
 ├── frontend/ # Aplicação React com Vite
@@ -41,9 +41,9 @@ PI-2-Semestre/
 └── ...
 ```
 
-## 🖥️ Funcionalidades
+## Funcionalidades
 
-### 🌐 Frontend (React)
+### Frontend (React)
 
 - Tela de login
 - Tela inicial com categorias
@@ -55,7 +55,7 @@ PI-2-Semestre/
   - Painel lateral com os detalhes do pedido
 - Estilização moderna com **TailwindCSS** e **Flowbite**
 
-### 🛠️ Backend (Node.js + Express)
+### Backend (Node.js + Express)
 
 - Autenticação de usuários com JWT
 - Integração com banco de dados PostgreSQL via Sequelize
@@ -68,14 +68,14 @@ PI-2-Semestre/
 - Padrão MVC (Model - View - Controller)
 - Renderização de páginas com EJS (se necessário)
 
-## 📊 Relatórios
+## Relatórios
 
 A aplicação também possui um módulo de relatórios que permite:
 - Visualizar vendas por período
 - Identificar os produtos mais vendidos
 - Gerar estatísticas úteis para tomada de decisão
 
-## 🧪 Tecnologias Utilizadas
+## Tecnologias Utilizadas
 
 ### Frontend:
 
@@ -94,21 +94,21 @@ A aplicação também possui um módulo de relatórios que permite:
 - Dotenv
 - EJS (para views no backend)
 
-## ⚙️ Como Executar o Projeto
+## Como Executar o Projeto
 
-### 🔧 Pré-requisitos
+### Pré-requisitos
 
 - Node.js (v18 ou superior)
 - PostgreSQL
 - Git
 
-### 📥 Clonando o Repositório
+### Clonando o Repositório
 
 ```bash
 git clone https://github.com/RaulSayajin/PI-2-Semestre.git
 ```
 
-### 📁 Instalando as Dependências do backend
+### Instalando as Dependências do backend
 
 
 - 1. Navegue até a pasta do loja-app e instale as dependências:
@@ -118,7 +118,7 @@ npm install
 # ou
 yarn install
 ```
-### 🛠️ Configurando o Backend
+### Configurando o Backend
 - 2. Vá até no arquivo .env.exemple e configure as variáveis de ambiente necessárias, como `DB_HOST`, `DB_USER`, `DB_PASSWORD`, etcs.
 - 3. Troque o nome do arquivo `.env.exemple`, para `.env`.
 - 4. No banco postgreSQL execute o postgres.sql, localizado na pasta `db`, para criar o squema do banco de dados.
@@ -129,7 +129,7 @@ npm start
 yarn start
 ```
 
-### 📁 Instalando as Dependências do frontend
+### Instalando as Dependências do frontend
 
 - 1. Navegue até a pasta do frontend e instale as dependências:
 ```bash
@@ -138,7 +138,7 @@ npm install
 # ou
 yarn install
 ```
-### 🛠️ Inicializando o Frontend
+### Inicializando o Frontend
 
 ```bash
 npm run dev
